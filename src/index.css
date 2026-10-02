@@ -1,0 +1,463 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   IRCTC & Indian Railways Design System
+   Palette: Deep Railway Navy (#213d77), Crisp Bright Whites (#ffffff),
+   High-Contrast Saffron/Orange (#fb792b), Caution Yellow (#f59e0b),
+   Strict Government-Style Flat Borders & Tabular Layouts
+   ========================================================================== */
+
+:root {
+  --irctc-navy-primary: #213d77;
+  --irctc-navy-dark: #142548;
+  --irctc-navy-light: #2d4f96;
+  --irctc-navy-soft: #eef2f9;
+
+  --irctc-orange-primary: #fb792b;
+  --irctc-orange-hover: #e56617;
+  --irctc-orange-dark: #c85007;
+  --irctc-orange-soft: #fff7ed;
+
+  --irctc-yellow-accent: #f59e0b;
+  --irctc-yellow-contrast: #d97706;
+  --irctc-yellow-dark: #b45309;
+  --irctc-yellow-soft: #fefce8;
+
+  --irctc-bg-portal: #f0f2f5;
+  --irctc-bg-surface: #ffffff;
+  --irctc-border-crisp: #cbd5e1;
+  --irctc-border-strong: #94a3b8;
+  --irctc-border-navy: #213d77;
+
+  --irctc-text-main: #0f172a;
+  --irctc-text-muted: #475569;
+  --irctc-text-light: #64748b;
+
+  --irctc-status-green: #15803d;
+  --irctc-status-green-bg: #f0fdf4;
+  --irctc-status-green-border: #86efac;
+
+  --irctc-status-red: #b91c1c;
+  --irctc-status-red-bg: #fef2f2;
+  --irctc-status-red-border: #fca5a5;
+
+  --irctc-status-amber: #b45309;
+  --irctc-status-amber-bg: #fffbeb;
+  --irctc-status-amber-border: #fde68a;
+}
+
+/* --------------------------------------------------------------------------
+   Global Reset & Government Portal Typography
+   -------------------------------------------------------------------------- */
+html {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--irctc-text-main);
+  background-color: var(--irctc-bg-portal);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--irctc-bg-portal);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: var(--irctc-text-main);
+}
+
+/* --------------------------------------------------------------------------
+   Government Portal Geometry Overrides
+   Replaces floaty, bubbly rounded-3xl / rounded-2xl with crisp, flat 
+   structured corners and crisp, reliable 1px solid borders.
+   -------------------------------------------------------------------------- */
+.rounded-3xl {
+  border-radius: 8px !important;
+}
+
+.rounded-2xl {
+  border-radius: 6px !important;
+}
+
+.rounded-xl {
+  border-radius: 4px !important;
+}
+
+/* Eliminate diffuse, floaty modern drop shadows in favor of crisp 1px borders */
+.shadow-2xl,
+.shadow-xl,
+.shadow-lg {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 0 0 1px #cbd5e1 !important;
+}
+
+.shadow-md,
+.shadow-sm,
+.shadow-xs {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Reinforce crisp, non-faded borders */
+.border-slate-200 {
+  border-color: #cbd5e1 !important;
+}
+
+.border-slate-100 {
+  border-color: #e2e8f0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Structured Form Elements (Crisp borders, high-contrast focus rings)
+   -------------------------------------------------------------------------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+  border: 1px solid #94a3b8 !important;
+  border-radius: 4px !important;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: #213d77 !important;
+  box-shadow: 0 0 0 2px rgba(33, 61, 119, 0.25) !important;
+}
+
+/* Custom Scrollbars for High-Density Data */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   Structured Utility Layout & Flat Government Portal Components
+   -------------------------------------------------------------------------- */
+
+/* Flatter, Crisp Box Containers */
+.irctc-panel {
+  background-color: #ffffff;
+  border: 1px solid var(--irctc-border-crisp);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.irctc-panel-header {
+  background-color: var(--irctc-navy-primary);
+  color: #ffffff;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 2px solid var(--irctc-orange-primary);
+}
+
+.irctc-panel-header-subtle {
+  background-color: #f8fafc;
+  border-bottom: 1px solid var(--irctc-border-crisp);
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--irctc-navy-primary);
+}
+
+/* Crisp Government Table Styles */
+.irctc-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--irctc-border-crisp);
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.irctc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  text-align: left;
+}
+
+.irctc-table th {
+  background-color: var(--irctc-navy-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+}
+
+.irctc-table th:last-child {
+  border-right: none;
+}
+
+.irctc-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--irctc-border-crisp);
+  border-right: 1px solid #f1f5f9;
+  color: #1e293b;
+}
+
+.irctc-table td:last-child {
+  border-right: none;
+}
+
+.irctc-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.irctc-table tr:hover {
+  background-color: #eff6ff;
+}
+
+/* --------------------------------------------------------------------------
+   High-Contrast Action Buttons & CTA Systems
+   -------------------------------------------------------------------------- */
+.btn-irctc-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--irctc-orange-primary);
+  color: #ffffff !important;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  border: 1px solid var(--irctc-orange-dark);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-irctc-orange:hover {
+  background-color: var(--irctc-orange-hover);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  transform: translateY(-0.5px);
+}
+
+.btn-irctc-orange:active {
+  background-color: var(--irctc-orange-dark);
+  transform: translateY(0);
+}
+
+.btn-irctc-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--irctc-navy-primary);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  border: 1px solid var(--irctc-navy-dark);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-irctc-navy:hover {
+  background-color: var(--irctc-navy-dark);
+}
+
+.btn-irctc-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--irctc-yellow-accent);
+  color: #0f172a !important;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  border: 1px solid var(--irctc-yellow-dark);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-irctc-yellow:hover {
+  background-color: #d97706;
+  color: #ffffff !important;
+}
+
+.btn-irctc-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: var(--irctc-navy-primary) !important;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  border: 1.5px solid var(--irctc-navy-primary);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-irctc-outline:hover {
+  background-color: var(--irctc-navy-soft);
+}
+
+/* --------------------------------------------------------------------------
+   High-Contrast Status Indicators & Railway Booking Badges
+   -------------------------------------------------------------------------- */
+.irctc-badge-available {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--irctc-status-green-bg);
+  color: var(--irctc-status-green);
+  border: 1px solid var(--irctc-status-green-border);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.irctc-badge-wl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--irctc-status-red-bg);
+  color: var(--irctc-status-red);
+  border: 1px solid var(--irctc-status-red-border);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.irctc-badge-rac {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--irctc-status-amber-bg);
+  color: var(--irctc-status-amber);
+  border: 1px solid var(--irctc-status-amber-border);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+/* Official Railway Class Fare Boxes */
+.irctc-class-box {
+  background-color: #ffffff;
+  border: 1px solid var(--irctc-border-crisp);
+  border-radius: 4px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.irctc-class-box:hover {
+  border-color: var(--irctc-navy-primary);
+  background-color: #f8fafc;
+}
+
+.irctc-class-box.active {
+  border: 2px solid var(--irctc-orange-primary);
+  background-color: #fffaf5;
+}
+
+/* IRCTC Government Alert Ticker */
+.irctc-advisory-ticker {
+  background-color: #fff7ed;
+  border-top: 1px solid #ffedd5;
+  border-bottom: 2px solid var(--irctc-orange-primary);
+  color: #9a3412;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+/* IRCTC Berth Visual Layout Styles */
+.irctc-berth {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+  transition: all 0.1s ease;
+}
+
+.irctc-berth.available {
+  background-color: #ffffff;
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+.irctc-berth.available:hover {
+  background-color: #dcfce7;
+}
+
+.irctc-berth.selected {
+  background-color: var(--irctc-navy-primary);
+  border-color: var(--irctc-orange-primary);
+  color: #ffffff;
+}
+
+.irctc-berth.booked {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Crisp Clean Print Styles for Railway Tickets */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, nav, aside, .no-print {
+    display: none !important;
+  }
+  .irctc-panel {
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+  }
+}

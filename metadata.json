@@ -1,0 +1,8 @@
+{
+  "name": "TS train_sys",
+  "description": "TS train_sys - One Platform. Every Journey. Unified Railway, Flight, and Bus reservation portal with dedicated User and Admin dashboards, interactive seat selection, digital tickets, and comprehensive management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
